@@ -1,0 +1,30 @@
+---
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { ui } from '../i18n';
+const { frontmatter, lang = 'pt' } = Astro.props;
+---
+<article class="prose prose-neutral dark:prose-invert mx-auto max-w-3xl px-4">
+  <h1 class="mb-0">{frontmatter.title}</h1>
+  <p class="mt-1 text-sm text-neutral-500">{new Date(frontmatter.pubDate).toLocaleDateString(lang)}</p>
+  <slot />
+  <section class="mt-8">
+    <h3 class="text-lg font-semibold">{ui[lang].comments}</h3>
+    <!-- Giscus: substitui os data-* quando tiveres repo GitHub -->
+    <script src="https://giscus.app/client.js"
+      data-repo="USER/REPO"
+      data-repo-id="REPO_ID"
+      data-category="General"
+      data-category-id="CATEGORY_ID"
+      data-mapping="pathname"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-theme="preferred_color_scheme"
+      crossorigin="anonymous"
+      async>
+    </script>
+    <div id="giscus"></div>
+  </section>
+  <section class="mt-8">
+    <NewsletterForm lang={lang} />
+  </section>
+</article>

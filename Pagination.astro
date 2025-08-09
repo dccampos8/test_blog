@@ -1,0 +1,11 @@
+---
+const { prevUrl, nextUrl } = Astro.props;
+---
+<nav class="flex justify-between mt-8">
+  <div>
+    {prevUrl && <a class="underline" href={prevUrl}>← Mais recentes</a>}
+  </div>
+  <div>
+    {nextUrl && <a class="underline" href={nextUrl}>Mais antigos →</a>}
+  </div>
+</nav>

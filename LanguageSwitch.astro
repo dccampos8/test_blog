@@ -1,0 +1,10 @@
+---
+import { languages } from '../i18n';
+const { lang } = Astro.props;
+---
+<div class="inline-flex rounded-xl border border-neutral-300 dark:border-neutral-700 overflow-hidden">
+  {Object.entries(languages).map(([code, meta]) => (
+    <a href={meta.path}
+       class={`px-3 py-1 text-sm ${code === lang ? 'bg-neutral-200 dark:bg-neutral-700' : ''}`}>{meta.label}</a>
+  ))}
+</div>

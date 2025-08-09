@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PostCard from '../../components/PostCard.astro';
+const lang = 'pt';
+const posts = (await getCollection('posts')).filter(p => !p.data.draft && p.data.lang === lang);
+---
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" />
+    <script defer data-domain="conversa-de-tasca.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  </head>
+  <body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
+    <Header lang={lang} />
+    <main class="mx-auto max-w-5xl px-4 py-8 grid gap-6 md:grid-cols-2">
+      {posts.map(post => <PostCard post={post} lang={lang} />)}
+    </main>
+    <Footer />
+  </body>
+</html>

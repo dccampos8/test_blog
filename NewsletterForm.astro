@@ -1,0 +1,10 @@
+---
+import { ui } from '../i18n';
+const { lang } = Astro.props;
+// Substitui o action pelo teu URL Beehiiv/Substack quando tiveres
+const action = '';
+---
+<form class="flex gap-2" method="post" action={action} target="_blank">
+  <input name="email" type="email" required placeholder="o-teu@email.com" class="flex-1 rounded-xl border px-3 py-2" />
+  <button class="rounded-xl bg-primary px-4 py-2 text-white">{ui[lang].newsletterCta}</button>
+</form>

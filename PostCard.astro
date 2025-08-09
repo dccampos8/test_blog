@@ -1,0 +1,13 @@
+---
+const { post, lang } = Astro.props;
+---
+<article class="p-4 rounded-2xl border hover:shadow-sm transition">
+  <a href={post.url}>
+    <h3 class="text-xl font-semibold">{post.data.title}</h3>
+    <p class="text-sm text-neutral-500 mt-1">{new Date(post.data.pubDate).toLocaleDateString(lang)}</p>
+    <p class="mt-2 text-neutral-700 dark:text-neutral-300">{post.data.description}</p>
+    <div class="mt-2 text-xs">
+      {post.data.category && (<span class="px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800">{post.data.category}</span>)}
+    </div>
+  </a>
+</article>

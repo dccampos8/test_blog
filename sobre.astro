@@ -1,0 +1,16 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { defaultLang } from '../i18n';
+---
+<html lang={defaultLang}>
+  <head><meta charset="utf-8"/></head>
+  <body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
+    <Header lang={defaultLang} />
+    <main class="mx-auto max-w-3xl px-4 py-8 prose dark:prose-invert">
+      <h1>Sobre</h1>
+      <p>Este é um blog anónimo com reflexões sobre política e sociedade.</p>
+    </main>
+    <Footer />
+  </body>
+</html>
